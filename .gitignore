@@ -165,3 +165,4 @@ cython_debug/
 # Large data files
 COVID-19_Vaccinations_by_County.csv
 cc-est2022-all.csv
+COVID-19_Vaccinations_in_the_United_States_Jurisdiction_20240103.csv
