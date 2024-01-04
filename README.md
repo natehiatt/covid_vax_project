@@ -1,9 +1,6 @@
 ![ReadMe header](images/readme_header.png)
 # Building a Predictive Model of COVID-19 Vaccinations
 
-## Data Sources
-
-
 ## Overview
 
 ## Business Understanding
@@ -23,6 +20,7 @@
 
 ## Modelling
 
+why we chose this metric!! importance of false posives
 ## Results
 
 ## Impact
@@ -34,22 +32,24 @@
 ## Repo Structure
 ```
 ├── data
-│   ├── tn.movie_budgets.csv.gz
-│   ├── tmdb.movies.csv.gz
-│   ├── rt.reviews.tsv.gz
-│   ├── imdb.db.zip
-│   ├── bom.movie_gross.csv.gz
+│   ├── cleaned_data.csv
+│   ├── COVID-19_Vaccinations_in_the_United_States_Jurisdiction_20240103
+│   ├── cc-est2022-agesex-all.csv
+│   ├── Provisional_COVID-19_Deaths_by_County__and_Race_and_Hispanic_Origin_20240102.csv
+│   ├── Education.xlsx
+│   ├── PovertyEstimates.xlsx
+│   ├── COVID-19_Vaccinations_by_County.csv
+│   ├── 2020_US_County_Level_Presidential_Results.csv
 ├── Images
+│   ├── readme_header.png
+│   ├── pair_plot.png
 ├── Notebooks
-│   ├── data_cleaning.ipynb
-│   ├── data_cleaning-jay.ipynb
-│   ├── scratch_graphs.ipynb
+│   ├── data_cleaning_scratch.ipynb
+│   ├── modelling_scratch.ipynb
+│   ├── nate_models_scratch.ipynb
 │   ├── __pycache__
 │   ├── nate_scratch.ipynb
 │   ├── shelley_scratch.ipynb
-│   ├── jay_scratch.ipynb
-│   ├── Final_Jay_Copy.ipynb
-│   ├── Final_copy_shelley.ipynb
 ├── presentation.pdf
 ├── .gitignore
 ├── Final.ipynb
