@@ -1,9 +1,12 @@
 ![ReadMe header](images/readme_header.png)
 # Building a Predictive Model of COVID-19 Vaccinations
 
-## Overview
+## Background
+Vaccinating a large percentage of the community is an essential portion of the response to the COVID-19 pandemic. 
+Three years from the vaccine roll-out, we  now have a more complete picture of the disparity in vaccination rates among certain populations. One area of concern is effect of partisan alignment on vaccination hesitance, especially in an increasingly polarized country. The extensive discourse regarding medical misinformation and demographic-specific institutional distrust highlights a crucial area of research: what determines the likelihood of vaccination?
 
-## Business Understanding
+
+## Research Question
 
 ## Data Understanding
 - [CDC: COVID-19 Vaccinations by County](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh/about_data) (468.8MB)
@@ -21,9 +24,12 @@
 ## Modelling
 
 why we chose this metric!! importance of false posives
+
 ## Results
 
 ## Impact
+Public health efforts need to be informed by accurate data on heterogenous vaccination results so that providers can shape outreach to maximize positive outcomes. 
+
 
 
 ## Next Steps
