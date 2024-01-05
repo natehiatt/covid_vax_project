@@ -64,7 +64,8 @@ Other factors we were interested in, but did not find data for include:
 - Vaccine access, which could be represented through measures of medical provider densities in each county. Locations of hospitals, CVS's and other pharmacies, number of doctors, etc. 
 - Death rates are available per state, but not by county ([Johns Jopkins Interactive Map](https://coronavirus.jhu.edu/us-map)). They could help us ask whether more deaths led to higher vaccination.
 - Unemployment data could help us answer whether higher unemployment meant more time for people to get vaccinated and fewer infections due to less interaction.
-- Srveys and metrics measuring social and cultural attitudes toward medical institutions.
+- Surveys and metrics measuring social and cultural attitudes toward medical institutions.
+
 Data that was available but not included in this iteration of our model:
 - CDC vaccination statuses by age could help us see differences in vaccination statuses between the different generations. Were younger people more likely to be vaccinated?
 - The CDC also provided a Social Vulnerability Index.
