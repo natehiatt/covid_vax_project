@@ -17,7 +17,7 @@ The stakeholders here are numerous: the federal government wants to direct its e
 ## Data Understanding
 We began with six datasets total, all providing data at the county-level. These datasets are provided below and in our data folder. 
 Our target variable is the latest (as of May 2023) available cumulative data on completed primary series vaccinations by county, from the CDC. 
-Our **six** predictors are county-level demographic data: 2020 Presidential election results from a github repository; race and age from the Census; poverty, median household income, and educational attainment from the USDA Economic Research Service. 
+Our predictors are county-level demographic data: metro (urban) status from the same CDC dataset; 2020 Presidential election results from a github repository; race and age from the Census; poverty, median household income, and educational attainment from the USDA Economic Research Service. 
 - [CDC: COVID-19 Vaccinations by County](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh/about_data) (468.8MB)
 - [Census Datasets](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)
 - [USDA Datasets](https://www.ers.usda.gov/data-products/county-level-data-sets/)
@@ -26,9 +26,15 @@ Our **six** predictors are county-level demographic data: 2020 Presidential elec
 ## Data Preparation
 We compiled our six datasets into one cleaned dataset (again provided in our data folder) containing 3,113 rows -- one for almost every county in the US. We dropped data from Alaska because it administers its presidential elections by districts. These were drawn differently from its counties, so the mismatch between the datasets resulted in significant missing information across the board. We also dropped data from Puerto Rico, Guam, and the Virgin Islands, because no data was available for them in our predictors datasets.
 We prepped our variables of interest in the following ways:
-- Target (Vaccinations): We created a binary column where a county was assigned 1 if they had achieved a 70% primary series vaccination rate. This 70% threshold is based on Johns Hopkins University's estimate of the percentage of the population that would need to be vaccinated in order to achieve herd immunity.
-  - hawaii and california
-- 
+- Target (Vaccinations): We created a binary column where a county was assigned 1 if they had achieved a 70% primary series vaccination rate. This 70% threshold is based on (Johns Hopkins University's estimate)[https://coronavirus.jhu.edu/from-our-experts/early-herd-immunity-against-covid-19-a-dangerous-misconception#:~:text=To%20reach%20herd%20immunity%20for,before%20we%20reach%20this%20threshold.] of the percentage of the population that would need to be vaccinated in order to achieve herd immunity.
+- **13** Predictors: Each is included because (1) data was available at the county level, and (2) because they potentially have an affect on the likelihood of whether someone got vaccinated.
+  - 2020 Political Party Result: We kept two columns, one for the percentage of people in a county that voted for the Republican candidate, and one for the percentage of people in a county that voted for the Democratic candidate. We created a third column as the difference between the two -- "third party" voters.
+  - Urban status: A binary column for whether the county was considered a "metro" area. To see whether rural areas had more difficulty accessing vaccines.
+  - Poverty: A column containing the percentage of the population who were defined as "in poverty". This is one proxy measure for socioeconomic status.
+  - Household Income: In dollars, the median household income in that county. This is a another proxy measure for socioeconomic status.
+  - Race: We created four columns based on percentages of four major racial categories in each county: white, black, indigenous, and AAPI.
+  - Age: A column for median age in said county.
+  - Education: Two columns: one for those who had achieve anything at or below a high school diploma, another for some college and up.
 
 ## Modelling
 
