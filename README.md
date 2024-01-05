@@ -43,13 +43,13 @@ Preliminary exploration of our dataset shows some relationship between percentag
 ## Modelling
 We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
 In every model we split data into training and test sets. To evaluate we ran cross validations on the training sets. The following outlines our process:
-1. We had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, we created a pieline to tune this decision tree. Within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance), and grid searched our model using a variety of hyperparameters.
-2. Next we created a dummy model which predicted the majority class (0, or not fully vaccinated/not herd immune) every time. We used this as a baseline to which our following models could be compared.
-3. Next we tried creating a pipeline for a logistic regression, then grid searched various hyperparameters again. We scaled our data since our logistic regression inherently involves regularization (of which we tested several types), and used our over-sampled training data. The accuracy SCORES
-5. Our data seemed to be non-linear. Further, there is a high chance that some of our predictors are colinear -- for example, the proportion of white citizens in a county is likely correlated with the amount of republicans in that county. Therefore, we went back to tree-based models. Trees are not linear, so they don't need linear relationships to model. This also resolves our issues with multicolinearity.
-6. We first tried a random forest model SCORE
-7. AdaBoost model
-8. Gradient Boosting model
+1. First we created a dummy model which predicted the majority class (0, or not fully vaccinated/not herd immune) every time. We used this as a baseline to which our following models could be compared. The accuracy was 89% and the precision was 0%.
+2. Next we created a decision tree model pipeline. We had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance). Then we grid searched our model using a variety of hyperparameters. Our best model's accuracy was 89% and the precision was 51%. 
+3. Next we tried creating a pipeline for a logistic regression, then grid searched various hyperparameters again. We scaled our data since our logistic regression inherently involves regularization (of which we tested several types), and used our over-sampled training data. The best model's accuracy was 88% and the precision was 49%.
+5. Our data seemed to be non-linear. Further, there was a high chance that some of our predictors are colinear -- for example, the proportion of white citizens in a county is likely correlated with the amount of republicans in that county. Therefore, we went back to tree-based models. Trees are not linear, so they don't need linear relationships to model. This also resolves our issues with multicolinearity.
+6. We first grid searched a pipeline of a random forest model. Our best model had an accuracy of 92% and a precision of 61%.
+7. Our grid search of our Gradient Boosting pipeline resulted in a best model with an accuracy of 93% and a precision of 71%.
+8. Our grid search of our AdaBoost pipeline resulted in a best model with an accuracy of 90%, and a precision of 55%.
 
 ## Results
 We settled on our Gradient Boosting moddel because it had the best scores: when it predicted that full vaccination was achieved, it was right 71% of the time. This is an improvement of 71 percentage points over our dummy model. 
