@@ -37,32 +37,25 @@ We prepped our variables of interest in the following ways:
   - Education: Two columns: one for those who had achieve anything at or below a high school diploma, another for some college and up.
 
 ## Modelling
-
-why we chose this metric!! importance of false posives
+We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
+1. fsd
+2. 2. 
 
 ## Results
 When it predicted that full vaccination was achieved, it was right 71% of the time
 
 
 ## Impact
-Public health efforts need to be informed by accurate data on heterogenous vaccination results so that providers can shape outreach to maximize positive outcomes. 
-Having a predictive model for vaccination level can inform how we respond to future diseases
-Because when we know what characteristics make vaccination less likely, we can changing the shape of our Vaccine outreach in order to hopefully IMPROVE OUTCOMES
-For example, if being republican makes you less likely to get vaccinated, we need to cater the media dialogue surrounding safety and efficacy to that group
-
-Furthermore, based on the racial disparity in vaccination rates, achieving healthcare equity may require focusing manpower, medical supplies, etc. on the more vulnerable populations
-
-Ultimately this model can contribute to an ongoing debate about healthcare and race, wealth, and importantly political affiliation - the very question that sparked our interest in this research
-Media focus/medical PR
-Most vulnerable populations
-Where to send medical supplies
-
+Public health efforts need to be informed by accurate data on heterogenous vaccination results so that providers can shape outreach to maximize positive outcomes. Having a predictive model for vaccination level can inform how we respond to future diseases. When we know what characteristics make vaccination less likely, we can changing the shape of our vaccine outreach in order to increase vaccination rates.
+For example, if being Republican makes a person less likely to get vaccinated, we need to cater the media dialogue surrounding safety and efficacy to that group. Furthermore, based on the racial disparity in vaccination rates, achieving healthcare equity may require focusing manpower, medical supplies, etc. on the more vulnerable populations. 
+Therefore, this model can change how medical public relations is done, who medical providers and the government targets, logistical realities of medical infrastructure, and more.
+Ultimately this model can contribute to an ongoing debate about healthcare and race, wealth, and importantly political affiliation - the very question that sparked our interest in this research.
 
 ## Next Steps
 There is exciting potential for further research should more county-level demographic data become available. Inputting other potential predictors of vaccinations could bring the precision and accuracy of our model higher up. Finding weak/less predictive data would also be informative.  
 Other factors we were interested in, but did not find data for include:
 - Vaccine access, which could be represented through measures of medical provider densities in each county. Locations of hospitals, CVS's and other pharmacies, number of doctors, etc. 
-- Death rates are available per state, but not by county ([Johns Jopkins Interactive Map](https://coronavirus.jhu.edu/us-map)). They could help us ask whether more deaths led to higher vaccination.
+- Death rates are available per state, but not by county ([Johns Hopkins Interactive Map](https://coronavirus.jhu.edu/us-map)). They could help us ask whether more deaths led to higher vaccination.
 - Unemployment data could help us answer whether higher unemployment meant more time for people to get vaccinated and fewer infections due to less interaction.
 - Surveys and metrics measuring social and cultural attitudes toward medical institutions.
 
