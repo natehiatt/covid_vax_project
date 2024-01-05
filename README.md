@@ -10,7 +10,7 @@ Examples of media covering this topic:
 - (NPR: There's A Stark Red-Blue Divide When It Comes To States' Vaccination Rates)[https://www.npr.org/2021/06/09/1004430257/theres-a-stark-red-blue-divide-when-it-comes-to-states-vaccination-rates]
 
 ## Research Question
-While we are inspired by and will pay particular attention to party-specific differences in vaccination rates, we have gathered data on a multitude of factors that might affect vaccination rates, in order to build a more robust model. 
+While we are inspired by and will pay particular attention to party-specific differences in vaccination rates, in order to build a more robust model we have gathered data on a multitude of factors that might affect vaccination rates. 
 Our research question is this: What factors best predict the rate of vaccination on a county-by-county level? 
 The stakeholders here are numerous: the federal government wants to direct its efforts to the appropriate counties; local governments want to make sure they have necessary resources; businesses want to ensure healthy employees and customers; the public benefits from lower rates of disease and mortality.
 
@@ -35,11 +35,18 @@ We prepped our variables of interest in the following ways:
   - Race: We created four columns based on percentages of four major racial categories in each county: white, black, indigenous, and AAPI.
   - Age: A column for median age in said county.
   - Education: Two columns: one for those who had achieve anything at or below a high school diploma, another for some college and up.
+ 
+Preliminary exploration of our dataset shows some relationship between percentage vaccinated and political party, justifying our modelling. In the images below, orange represents counties with who have achieved a target of 1, or 70% of the population vaccinated.
+![Republican vaccination rates](images/republican_scatter.png]
+![Democrat vaccination rates](images/democrat_scatter.png]
 
 ## Modelling
 We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
-1. fsd
-2. 2. 
+In every model we split data into training and test sets. To evaluate we ran cross validations on the training sets. The following outlines our process:
+1. We ran a basic Decision Tree Classifier and got a very overfit model with a training accuracy of 1. While our precision and accuracy scores did come out high, we had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, w
+2. Therefore, we created a pieline to tune this decision tree.
+3. ithin the pipeline we scaled our data and did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance).
+4. 
 
 ## Results
 When it predicted that full vaccination was achieved, it was right 71% of the time
