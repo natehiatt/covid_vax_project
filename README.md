@@ -43,15 +43,26 @@ Preliminary exploration of our dataset shows some relationship between percentag
 ## Modelling
 We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
 In every model we split data into training and test sets. To evaluate we ran cross validations on the training sets. The following outlines our process:
-1. We ran a basic Decision Tree Classifier and got a very overfit model with a training accuracy of 1. While our precision and accuracy scores did come out high, we had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. 
-2. Therefore, we created a pieline to tune this decision tree. Within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance), and grid searched our model using a variety of hyperparameters. 
-4. 
+1. We had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, we created a pieline to tune this decision tree. Within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance), and grid searched our model using a variety of hyperparameters.
+2. Next we created a dummy model which predicted the majority class (0, or not fully vaccinated/not herd immune) every time. We used this as a baseline to which our following models could be compared.
+3. Next we tried creating a pipeline for a logistic regression, then grid searched various hyperparameters again. We scaled our data since our logistic regression inherently involves regularization (of which we tested several types), and used our over-sampled training data. The accuracy SCORES
+5. Our data seemed to be non-linear. Further, there is a high chance that some of our predictors are colinear -- for example, the proportion of white citizens in a county is likely correlated with the amount of republicans in that county. Therefore, we went back to tree-based models. Trees are not linear, so they don't need linear relationships to model. This also resolves our issues with multicolinearity.
+6. We first tried a random forest model SCORE
+7. AdaBoost model
+8. Gradient Boosting model
 
 ## Results
-When it predicted that full vaccination was achieved, it was right 71% of the time
+We settled on our Gradient Boosting moddel because it had the best scores: when it predicted that full vaccination was achieved, it was right 71% of the time. This is an improvement of 71 percentage points over our dummy model. 
 
-[Gradient Boosting Final Model Feature Importances Bar Graph](images/gb_coefs.png)
-[Logistic Reg Coeffs Strengths Bar Graph](images/logreg_coef.png)
+![Gradient Boosting Final Model Feature Importances Bar Graph](images/gb_coefs.png)
+This graph depicts relative **importances** of each feature in determining which class of the target a county achieved. This does not show the direction in which each feature affects the likelihood of our target, but rather how strongly that feature improved the accuracy of the model.The strongest determinants of the target are the percentage of republicans, percentage of democrats, and percentage of black citizens, respectively.
+
+![Logistic Reg Coeffs Strengths Bar Graph](images/logreg_coef.png)
+Here we’ve included this graph from our logistic regression model which — unlike our final model — we can use to get a sense of the *direction* in which each factor affected the likelihood of vaccination
+Our top two strongest predictors are the percentage of white citizens and the percentage of ReBeing more white makes a county more likely to have achieved full vaccination
+Being more republican makes a county less likely to have achieved full vaccination
+
+We can conclude from our final model that of our included predictors, partisanship and race are strongest determinants of vaccine access. We cover the value of these conclusions below. 
 
 ## Impact
 Public health efforts need to be informed by accurate data on heterogenous vaccination results so that providers can shape outreach to maximize positive outcomes. Having a predictive model for vaccination level can inform how we respond to future diseases. When we know what characteristics make vaccination less likely, we can changing the shape of our vaccine outreach in order to increase vaccination rates.
