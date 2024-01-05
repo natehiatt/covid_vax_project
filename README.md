@@ -43,14 +43,15 @@ Preliminary exploration of our dataset shows some relationship between percentag
 ## Modelling
 We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
 In every model we split data into training and test sets. To evaluate we ran cross validations on the training sets. The following outlines our process:
-1. We ran a basic Decision Tree Classifier and got a very overfit model with a training accuracy of 1. While our precision and accuracy scores did come out high, we had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, w
-2. Therefore, we created a pieline to tune this decision tree.
-3. ithin the pipeline we scaled our data and did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance).
+1. We ran a basic Decision Tree Classifier and got a very overfit model with a training accuracy of 1. While our precision and accuracy scores did come out high, we had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. 
+2. Therefore, we created a pieline to tune this decision tree. Within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance), and grid searched our model using a variety of hyperparameters. 
 4. 
 
 ## Results
 When it predicted that full vaccination was achieved, it was right 71% of the time
 
+[Gradient Boosting Final Model Feature Importances Bar Graph](images/gb_coefs.png)
+[Logistic Reg Coeffs Strengths Bar Graph](images/logreg_coef.png)
 
 ## Impact
 Public health efforts need to be informed by accurate data on heterogenous vaccination results so that providers can shape outreach to maximize positive outcomes. Having a predictive model for vaccination level can inform how we respond to future diseases. When we know what characteristics make vaccination less likely, we can changing the shape of our vaccine outreach in order to increase vaccination rates.
