@@ -59,16 +59,16 @@ Where to send medical supplies
 
 
 ## Next Steps
-Need more predictors:
-- Vaccine access is a big one, but couldn't find county level hospital or vaccination provider location data
-- Deaths per county: [Johns Jopkins Interactive Map](https://coronavirus.jhu.edu/us-map)
-- Unemployment rate: free time to get shot?
-- Break down further by age? CDC has splits by age
-- SVI categorical A-D
-- As well as other surveys and metrics measuring social and cultural attitudes toward medical institutions.
-
-- age specifi emographic split
-
+There is exciting potential for further research should more county-level demographic data become available. Inputting other potential predictors of vaccinations could bring the precision and accuracy of our model higher up. Finding weak/less predictive data would also be informative.  
+Other factors we were interested in, but did not find data for include:
+- Vaccine access, which could be represented through measures of medical provider densities in each county. Locations of hospitals, CVS's and other pharmacies, number of doctors, etc. 
+- Death rates are available per state, but not by county ([Johns Jopkins Interactive Map](https://coronavirus.jhu.edu/us-map)). They could help us ask whether more deaths led to higher vaccination.
+- Unemployment data could help us answer whether higher unemployment meant more time for people to get vaccinated and fewer infections due to less interaction.
+- Srveys and metrics measuring social and cultural attitudes toward medical institutions.
+Data that was available but not included in this iteration of our model:
+- CDC vaccination statuses by age could help us see differences in vaccination statuses between the different generations. Were younger people more likely to be vaccinated?
+- The CDC also provided a Social Vulnerability Index.
+  
 ## Repo Structure
 ```
 ├── data
