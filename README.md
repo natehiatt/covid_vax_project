@@ -55,9 +55,11 @@ In every model we split data into training and test sets. To evaluate we ran cro
 We settled on our Gradient Boosting moddel because it had the best scores: when it predicted that full vaccination was achieved, it was right 71% of the time. This is an improvement of 71 percentage points over our dummy model. 
 
 ![Gradient Boosting Final Model Feature Importances Bar Graph](images/gb_coefs.png)
+
 This graph depicts relative **importances** of each feature in determining which class of the target a county achieved. This does not show the direction in which each feature affects the likelihood of our target, but rather how strongly that feature improved the accuracy of the model.The strongest determinants of the target are the percentage of republicans, percentage of democrats, and percentage of black citizens, respectively.
 
 ![Logistic Reg Coeffs Strengths Bar Graph](images/logreg_coef.png)
+
 Here we’ve included this graph from our logistic regression model which — unlike our final model — we can use to get a sense of the *direction* in which each factor affected the likelihood of vaccination
 Our top two strongest predictors are the percentage of white citizens and the percentage of ReBeing more white makes a county more likely to have achieved full vaccination
 Being more republican makes a county less likely to have achieved full vaccination
