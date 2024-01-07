@@ -13,6 +13,7 @@ Examples of media covering this topic:
 While we are inspired by and will pay particular attention to party-specific differences in vaccination rates, in order to build a more robust model we have gathered data on a multitude of factors that might affect vaccination rates. 
 Our research question is this: What factors best predict the rate of vaccination on a county-by-county level? 
 The stakeholders here are numerous: the federal government wants to direct its efforts to the appropriate counties; local governments want to make sure they have necessary resources; businesses want to ensure healthy employees and customers; the public benefits from lower rates of disease and mortality.
+Our slide deck on this project can be found here: [Presentation](https://docs.google.com/presentation/d/1rWdimwQ4d9hCoe86KW0Src9ZHbpHnUebFOJGI7OstIk/edit?usp=sharing) and as a PDF in our repository.
 
 ## Data Understanding
 We began with six datasets total, all providing data at the county-level. These datasets are provided below and in our data folder. 
