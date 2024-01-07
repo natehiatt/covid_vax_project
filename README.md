@@ -13,6 +13,7 @@ Examples of media covering this topic:
 While we are inspired by and will pay particular attention to party-specific differences in vaccination rates, in order to build a more robust model we have gathered data on a multitude of factors that might affect vaccination rates. 
 Our research question is this: What factors best predict the rate of vaccination on a county-by-county level? 
 The stakeholders here are numerous: the federal government wants to direct its efforts to the appropriate counties; local governments want to make sure they have necessary resources; businesses want to ensure healthy employees and customers; the public benefits from lower rates of disease and mortality.
+
 Our slide deck on this project can be found here: [Presentation](https://docs.google.com/presentation/d/1rWdimwQ4d9hCoe86KW0Src9ZHbpHnUebFOJGI7OstIk/edit?usp=sharing) and as a PDF in our repository.
 
 ## Data Understanding
@@ -26,7 +27,9 @@ Our predictors are county-level demographic data: metro (urban) status from the 
 
 ## Data Preparation
 We compiled our six datasets into one cleaned dataset (again provided in our data folder) containing 3,113 rows -- one for almost every county in the US. We dropped data from Alaska because it administers its presidential elections by districts. These were drawn differently from its counties, so the mismatch between the datasets resulted in significant missing information across the board. We also dropped data from Puerto Rico, Guam, and the Virgin Islands, because no data was available for them in our predictors datasets.
+
 We prepped our variables of interest in the following ways:
+
 - Target (Vaccinations): We created a binary column where a county was assigned 1 if they had achieved a 70% primary series vaccination rate. This 70% threshold is based on (Johns Hopkins University's estimate)[https://coronavirus.jhu.edu/from-our-experts/early-herd-immunity-against-covid-19-a-dangerous-misconception#:~:text=To%20reach%20herd%20immunity%20for,before%20we%20reach%20this%20threshold.] of the percentage of the population that would need to be vaccinated in order to achieve herd immunity.
 - **13** Predictors: Each is included because (1) data was available at the county level, and (2) because they potentially have an affect on the likelihood of whether someone got vaccinated.
   - 2020 Political Party Result: We kept two columns, one for the percentage of people in a county that voted for the Republican candidate, and one for the percentage of people in a county that voted for the Democratic candidate. We created a third column as the difference between the two -- "third party" voters.
@@ -43,7 +46,9 @@ Preliminary exploration of our dataset shows some relationship between percentag
 
 ## Modelling
 We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
+
 In every model we split data into training and test sets. To evaluate we ran cross validations on the training sets. The following outlines our process:
+
 1. First we created a dummy model which predicted the majority class (0, or not fully vaccinated/not herd immune) every time. We used this as a baseline to which our following models could be compared. The accuracy was 89% and the precision was 0%.
 2. Next we created a decision tree model pipeline. We had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance). Then we grid searched our model using a variety of hyperparameters. Our best model's accuracy was 89% and the precision was 51%. 
 3. Next we tried creating a pipeline for a logistic regression, then grid searched various hyperparameters again. We scaled our data since our logistic regression inherently involves regularization (of which we tested several types), and used our over-sampled training data. The best model's accuracy was 88% and the precision was 49%.
