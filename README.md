@@ -105,6 +105,17 @@ Data that was available but not included in this iteration of our model:
 ├── Images
 │   ├── readme_header.png
 │   ├── pair_plot.png
+│   ├── college_up_scatter.png
+│   ├── MEDIAN_AGE_TOT_scatter.png
+│   ├── MEDHHINC_2021_scatter.png
+│   ├── Metro_status_scatter.png
+│   ├── PCTPOVALL_2021_scatter.png
+│   ├── per_dem_scatter.png
+│   ├── per_gop_scatter.png
+│   ├── BA_scatter.png
+│   ├── logreg_heatmap.png
+│   ├── logreg_coef.png
+│   ├── gb_coefs.png
 ├── Notebooks
 │   ├── adjusted_target_and_other_variables.ipynb
 │   ├── data_cleaning_scratch.ipynb
