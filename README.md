@@ -46,7 +46,7 @@ In every model we split data into training and test sets. To evaluate we ran cro
 1. First we created a dummy model which predicted the majority class (0, or not fully vaccinated/not herd immune) every time. We used this as a baseline to which our following models could be compared. The accuracy was 89% and the precision was 0%.
 2. Next we created a decision tree model pipeline. We had a large class imbalance in our target column. Only about 10% of counties had achieved 'herd immunity'. Therefore, within the pipeline we did SMOTE over-sampling (which involves taking repeated samples of the minority class to correct the class imbalance). Then we grid searched our model using a variety of hyperparameters. Our best model's accuracy was 89% and the precision was 51%. 
 3. Next we tried creating a pipeline for a logistic regression, then grid searched various hyperparameters again. We scaled our data since our logistic regression inherently involves regularization (of which we tested several types), and used our over-sampled training data. The best model's accuracy was 88% and the precision was 49%.
-5. Our data seemed to be non-linear. Further, there was a high chance that some of our predictors are colinear -- for example, the proportion of white citizens in a county is likely correlated with the amount of republicans in that county. Therefore, we went back to tree-based models. Trees are not linear, so they don't need linear relationships to model. This also resolves our issues with multicolinearity.
+5. Our data seemed to be non-linear. Further, there was a high chance that some of our predictors are colinear -- for example, the proportion of white citizens in a county is likely correlated with the amount of Republicans in that county. Therefore, we went back to tree-based models. Trees are not linear, so they don't need linear relationships to model. This also resolves our issues with multicolinearity.
 6. We first grid searched a pipeline of a random forest model. Our best model had an accuracy of 92% and a precision of 61%.
 7. Our grid search of our Gradient Boosting pipeline resulted in a best model with an accuracy of 93% and a precision of 71%.
 8. Our grid search of our AdaBoost pipeline resulted in a best model with an accuracy of 90%, and a precision of 55%.
@@ -61,7 +61,8 @@ This graph depicts relative **importances** of each feature in determining which
 ![Logistic Reg Coeffs Strengths Bar Graph](images/logreg_coef.png)
 
 Here we’ve included this graph from our logistic regression model which — unlike our final model — we can use to get a sense of the *direction* in which each factor affected the likelihood of vaccination
-Our top two strongest predictors are the percentage of white citizens and the percentage of ReBeing more white makes a county more likely to have achieved full vaccination
+Our top two strongest predictors are the percentage of white citizens and the percentage of Republicans in that county:
+Being more white makes a county more likely to have achieved full vaccination
 Being more republican makes a county less likely to have achieved full vaccination
 
 We can conclude from our final model that of our included predictors, partisanship and race are strongest determinants of vaccine access. We cover the value of these conclusions below. 
