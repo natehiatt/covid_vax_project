@@ -41,8 +41,8 @@ We prepped our variables of interest in the following ways:
   - Education: Two columns: one for those who had achieve anything at or below a high school diploma, another for some college and up.
  
 Preliminary exploration of our dataset shows some relationship between percentage vaccinated and political party, justifying our modelling. In the images below, orange represents counties with who have achieved a target of 1, or 70% of the population vaccinated.
-![Republican vaccination rates](images/republican_scatter.png]
-![Democrat vaccination rates](images/democrat_scatter.png]
+![Republican vaccination rates](images/per_gop_scatter.png]
+![Democrat vaccination rates](images/per_dem_scatter.png]
 
 ## Modelling
 We attempted five different types of predictive models in order to maximize our precision and accuracy scores. The former is the metric we are most concerned with, because it measures true positives: when the model predicted a 1 (herd immunity achieved), what percent of the time was it right? Increasing precision means reducing false positives. Since the public health goal is to have achieved herd immunity, increasing precision is paramount.
